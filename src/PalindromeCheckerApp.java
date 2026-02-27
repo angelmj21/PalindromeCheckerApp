@@ -4,18 +4,15 @@ import java.util.*;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String str = "level";
-        Queue<Character> q = new LinkedList<>();
-        Stack<Character> s = new Stack<>();
+        String str = "noon";
+        Deque<Character> dq = new LinkedList<>();
 
-        for (char c : str.toCharArray()) {
-            q.add(c);
-            s.push(c);
-        }
+        for (char c : str.toCharArray())
+            dq.add(c);
 
         boolean flag = true;
-        while (!q.isEmpty()) {
-            if (!q.remove().equals(s.pop())) {
+        while (dq.size() > 1) {
+            if (!dq.removeFirst().equals(dq.removeLast())) {
                 flag = false;
                 break;
             }
