@@ -2,13 +2,21 @@ import java.util.Scanner;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String str = "level";
-        String rev = "";
+        String str = "racecar";
+        char[] arr = str.toCharArray();
+        int start = 0, end = arr.length - 1;
+        boolean flag = true;
 
-        for (int i = str.length() - 1; i >= 0; i--)
-            rev += str.charAt(i);
+        while (start < end) {
+            if (arr[start] != arr[end]) {
+                flag = false;
+                break;
+            }
+            start++;
+            end--;
+        }
 
-        if (str.equals(rev))
+        if (flag)
             System.out.println(str + " is palindrome");
         else
             System.out.println(str + " is NOT palindrome");
