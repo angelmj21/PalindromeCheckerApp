@@ -2,8 +2,12 @@ import java.util.Scanner;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the Palindrome Checker Management System\n" +
-                "Version : 1.0\n" +
-                "System initialized successfully.");
+      String str ="madam";
+      if (str.equals(new StringBuilder(str).reverse().toString())){
+          System.out.println(str + " is palindrome");
+
+      }else{
+          System.out.println(str+" is NOT palindrome");
+
+      }
     }}
