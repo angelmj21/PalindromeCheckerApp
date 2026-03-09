@@ -1,26 +1,36 @@
-public class PalindromeCheckerApp {
+import java.util.Stack;
 
-    static boolean isPalindrome(String str) {
-        // Normalize string: remove spaces and convert to lowercase
+class PalindromeChecker {
+
+    public boolean checkPalindrome(String str) {
         str = str.replaceAll("\\s+", "").toLowerCase();
 
-        int start = 0;
-        int end = str.length() - 1;
+        Stack<Character> stack = new Stack<>();
 
-        while (start < end) {
-            if (str.charAt(start) != str.charAt(end))
+        // Push characters to stack
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
+
+        // Compare while popping
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != stack.pop()) {
                 return false;
-            start++;
-            end--;
+            }
         }
 
         return true;
     }
+}
+
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        String input = "Madam In Eden Im Adam";
+        String input = "Madam";
 
-        if (isPalindrome(input))
+        PalindromeChecker checker = new PalindromeChecker();
+
+        if (checker.checkPalindrome(input))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
